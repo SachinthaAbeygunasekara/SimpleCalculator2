@@ -27,13 +27,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void calculate(View v){
 
-        String value1 = txtNumber1.getText().toString();
-        double n1 = Double.parseDouble(value1);
+        String tag = v.getTag().toString();
 
+        String value1 = txtNumber1.getText().toString();
         String value2 = txtNumber2.getText().toString();
+
+        double n1 = Double.parseDouble(value1);
         double n2 = Double.parseDouble(value2);
 
-        ans = n1 + n2;
+        switch ((tag)){
+            case"Add": ans = n1+n2; break;
+            case"Sub": ans = n1-n2; break;
+            case "Mul": ans =n1*n2; break;
+            case"Div": ans =n1/n2; break;
+        }
 
         lblAnswer.setText("Answer is : " + Math.round(ans));
     }
